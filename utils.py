@@ -17,5 +17,22 @@ def is_resource_sufficient(choice):
             break
     
     return is_resource_suff 
+
+def process_coins(choice):
+    print("Please insert coins.")
+    quarters = int(input("How many quarters?: "))
+    dimes = int(input("How many dimes?: "))
+    nickles = int(input("How many nickles?: "))
+    pennies = int(input("How many pennies?: "))
+    
+    total = 0.25*quarters + 0.1*dimes + 0.05*nickles + 0.01*pennies
+    cost = COFFEE_MENU.get(choice, {}).get("money", " ")
+    
+    if total>cost:
+        print(f"Here is ${round(total - cost, 2)} in change 💰.")
+        print(f"Here is your {choice}☕. Enjoy!")
+    else:
+        print("Sorry that's not enough money. Money refunded.")
+    
         
             

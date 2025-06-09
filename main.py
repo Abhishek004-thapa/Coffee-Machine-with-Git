@@ -1,4 +1,4 @@
-from utils import get_resources_report, is_resource_sufficient
+from utils import get_resources_report, is_resource_sufficient, process_coins
     
 is_machine_on = True
 
@@ -15,5 +15,5 @@ while is_machine_on:
             print(f"Sorry!!! {choice} is not available. Select correctly")
         else:
             if is_resource_sufficient(choice):
-                pass
+                process_coins(choice)
         
