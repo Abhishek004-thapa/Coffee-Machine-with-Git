@@ -31,6 +31,15 @@ def process_coins(choice):
     if total>cost:
         print(f"Here is ${round(total - cost, 2)} in change 💰.")
         print(f"Here is your {choice}☕. Enjoy!")
+        
+        if "money" in resources and isinstance(resources.get("money", " "), (float, int)):
+            resources["money"] += cost
+    
+        else:
+            print("KEYERROR !!! 'money' is not found as key in resouces.")
+        
+        for ingred, qty in COFFEE_MENU.get(choice, {}).get("ingredients", {}).items():
+            resources[ingred] -= qty
     else:
         print("Sorry that's not enough money. Money refunded.")
     
